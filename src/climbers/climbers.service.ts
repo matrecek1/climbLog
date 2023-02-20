@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, NotAcceptableException, NotFoundExcept
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, UpdateResult } from 'typeorm';
 import { Climber } from './climbers.entity';
-import { CreateClimberDto } from './climbers.types';
+import { ClimberUpdateDto, CreateClimberDto } from './climbers.types';
 
 @Injectable()
 export class ClimbersService {
@@ -28,5 +28,18 @@ export class ClimbersService {
         newClimber.lastName = climber.lastName
         newClimber.surname = climber.surname
         return await this.climbersRepository.save(newClimber)
+    }
+    async remove(id: number): Promise<void> {
+        const deleteResult = await this.climbersRepository.delete(id)
+        if (!deleteResult.affected) {
+            throw new NotFoundException("Climber not found!")
+        }
+    }
+    async patch(id: number, update: ClimberUpdateDto): Promise<Climber> {
+        const climber = await this.findOne(id)
+        return this.climbersRepository.save({
+            ...climber,
+            ...update
+        })
     }
 }
