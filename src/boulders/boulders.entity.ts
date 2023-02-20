@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Climb_log } from "src/climb-logs/climb-logs.entity";
 
 @Entity()
 export class Boulder {
@@ -13,4 +14,7 @@ export class Boulder {
 
     @Column()
     description: string;
+
+    @OneToMany(() => Climb_log, (climbLog) => climbLog.boulder)
+    climbLogs: Climb_log[]
 }

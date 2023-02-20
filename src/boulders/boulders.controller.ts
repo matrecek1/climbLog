@@ -20,7 +20,7 @@ export class BouldersController {
     @Get(':id')
     async getBoulder(@Param('id', ParseIntPipe) boulderId: number){
         const boulder = await this.bouldersService.findOne(boulderId)
-        return {boulder: boulder}
+        return {boulder}
     }
 
     @Patch(':id')

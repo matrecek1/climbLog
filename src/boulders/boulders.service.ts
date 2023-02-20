@@ -20,7 +20,11 @@ export class BouldersService {
     }
 
     findAll(): Promise<Boulder[]> {
-        return this.bouldersRepository.find()
+        return this.bouldersRepository.find({
+            relations:{
+                climbLogs:true
+            }
+        })
     }
 
     async findOne(id: number): Promise<Boulder> {
