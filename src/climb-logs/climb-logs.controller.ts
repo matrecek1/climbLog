@@ -6,9 +6,9 @@ import { climbLogUpdateDto, createClimbLogDto } from './climb-logs.types';
 export class ClimbLogsController {
     constructor(private climbLogsService:ClimbLogsService) {}
     @Post()
-    addClimbLog(@Body('climbLogInput') climbLogInput:createClimbLogDto){
-        this.climbLogsService.insert(climbLogInput.boulderId, climbLogInput.climberId)
-        return {message:"Climb Log created!"}
+    async addClimbLog(@Body('climbLogInput') climbLogInput:createClimbLogDto){
+        const newClimbLog = await this.climbLogsService.insert(climbLogInput.boulderId, climbLogInput.climberId)
+        return {message:"Climb Log created!", newClimbLog}
     }
 
     @Get()

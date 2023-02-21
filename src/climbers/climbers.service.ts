@@ -16,7 +16,7 @@ export class ClimbersService {
     }
 
     async findOne(id:number){
-        const climber = this.climbersRepository.findOneBy({id})
+        const climber = await this.climbersRepository.findOneBy({id})
         if(!climber){
             throw new NotFoundException("Climber not found!")
         }

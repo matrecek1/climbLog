@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Boulder } from 'src/boulders/boulders.entity';
 import { BouldersService } from 'src/boulders/boulders.service';
 import { Climber } from 'src/climbers/climbers.entity';
+import { ClimbersService } from 'src/climbers/climbers.service';
 import { Repository } from 'typeorm';
 import { Climb_log } from './climb-logs.entity';
 import { climbLogUpdateDto } from './climb-logs.types';
@@ -16,13 +17,14 @@ export class ClimbLogsService {
         private climbersRepository: Repository<Climber>,
         @InjectRepository(Boulder)
         private bouldersRepository: Repository<Boulder>,
-        private bouldersService:BouldersService
+        private bouldersService:BouldersService,
+        private climbersService: ClimbersService
     ) { }
     async insert(boulderId: number, climberId: number) {
         const newClimbLog = new Climb_log()
-        const climber = await this.climbersRepository.findOneBy({ id: climberId })
-        const boulder = await this.bouldersRepository.findOneBy({ id: boulderId })
+        const boulder = await this.bouldersService.findOne(boulderId)
         newClimbLog.boulder = boulder
+        const climber = await this.climbersService.findOne(climberId)
         newClimbLog.climber = climber
         return await this.climbLogsRepository.save(newClimbLog)
     }
