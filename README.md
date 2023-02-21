@@ -24,7 +24,21 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+REST API for logging climbing ascents. Still work in progress.
+
+### Techstack
+
+Typescript, Node.js, NestJS, MySQL, TypeORM
+
+### Why did I do it?
+
+My main focus for this project was to learn MySQL and NestJS.
+Plus if I add some user authorization, authentication and deploy it somewhere
+I might use it to actually log my own climbing ascents. 
+
+### Usage
+
+WIP
 
 ## Installation
 

@@ -63,9 +63,6 @@ export class ClimbLogsService {
     async patch(id:number, update:climbLogUpdateDto):Promise<Climb_log>{
         const climbLog = await this.findOne(id)
         if(update.boulderId){
-            // const boulder = await this.bouldersRepository.findOneBy({id:update.boulderId})
-            // if(!boulder) throw new NotFoundException("Boulder not found!")
-            // climbLog.boulder = boulder
             const boulder = await this.bouldersService.findOne(update.boulderId)
             climbLog.boulder = boulder
         }
