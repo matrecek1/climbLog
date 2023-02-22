@@ -6,9 +6,9 @@ import { Grade, BoulderUpdateDto, CreateBoulderDto } from './boulders.types';
 export class BouldersController {
     constructor(private bouldersService:BouldersService){}
     @Post()
-    addBoulder(@Body('boulderInput') boulderInput:CreateBoulderDto):{message:string} {
-        this.bouldersService.insert(boulderInput)
-        return { message: "successfully created Boulder" }
+    async addBoulder(@Body('boulderInput') boulderInput:CreateBoulderDto) {
+        const newBoulder = await this.bouldersService.insert(boulderInput)
+        return { message: "successfully created Boulder",newBoulder}
     }
 
     @Get()
