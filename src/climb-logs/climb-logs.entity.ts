@@ -1,5 +1,5 @@
-import { Boulder } from "src/boulders/boulders.entity";
-import { Climber } from "src/climbers/climbers.entity";
+import { Boulder } from "../boulders/boulders.entity";
+import { Climber } from "../climbers/climbers.entity";
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()

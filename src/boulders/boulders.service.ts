@@ -12,18 +12,12 @@ export class BouldersService {
     ) { }
 
     async insert(boulder:CreateBoulderDto): Promise<Boulder> {
-        const newBoulder = new Boulder()
-        newBoulder.name = boulder.name
-        newBoulder.grade = boulder.grade
-        newBoulder.description = boulder.description
+        const newBoulder = this.bouldersRepository.create(boulder)
         return await this.bouldersRepository.save(newBoulder)
     }
 
     findAll(): Promise<Boulder[]> {
         return this.bouldersRepository.find({
-            relations:{
-                climbLogs:true
-            }
         })
     }
 

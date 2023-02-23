@@ -1,4 +1,4 @@
-import { Climb_log } from "src/climb-logs/climb-logs.entity";
+import { Climb_log } from "../climb-logs/climb-logs.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
