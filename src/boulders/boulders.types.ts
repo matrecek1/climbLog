@@ -20,10 +20,10 @@ export class CreateBoulderDto {
 export class BoulderUpdateDto {
     @IsOptional()
     @MinLength(3)
-    name: string;
+    name?: string;
     @IsOptional()
     @MinLength(2)
-    grade: Grade;
+    grade?: Grade;
     @IsOptional()
-    description: string
+    description?: string
 }

@@ -1,7 +1,6 @@
 //Unit Test Code
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { async } from 'rxjs';
 import { Repository } from 'typeorm';
 import { Boulder } from './boulders.entity';
 import { BouldersService } from './boulders.service';
