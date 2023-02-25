@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Boulder } from 'src/boulders/boulders.entity';
-import { BouldersService } from 'src/boulders/boulders.service';
-import { Climber } from 'src/climbers/climbers.entity';
-import { ClimbersService } from 'src/climbers/climbers.service';
+import { Boulder } from '../boulders/boulders.entity';
+import { BouldersService } from '../boulders/boulders.service';
+import { Climber } from '../climbers/climbers.entity';
+import { ClimbersService } from '../climbers/climbers.service';
 import { Repository } from 'typeorm';
 import { Climb_log } from './climb-logs.entity';
 import { climbLogUpdateDto } from './climb-logs.types';
