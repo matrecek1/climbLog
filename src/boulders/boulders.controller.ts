@@ -33,6 +33,7 @@ export class BouldersController {
 
     @Delete(':id')
     async deleteBoulder(@Param('id', ParseIntPipe) boulderId:number){
+        console.log(boulderId);
         await this.bouldersService.remove(boulderId)
         return {message: "Boulder deletion successfull!"}
     }
