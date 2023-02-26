@@ -15,8 +15,6 @@ export class Climb_log {
     })
     climber: Climber
 
-    @ManyToOne(() => Boulder, (boulder) => boulder.climbLogs, {
-        cascade: true
-    })
+    @ManyToOne(() => Boulder, (boulder) => boulder.climbLogs)
     boulder: Boulder
 }

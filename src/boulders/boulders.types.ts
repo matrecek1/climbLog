@@ -7,7 +7,7 @@ export type Grade = "6A" | "6A+" | "6B" | "6B+" | "6C" | "6C+"
 
 export class CreateBoulderDto {
     @IsNotEmpty()
-    @MinLength(3)
+    @MinLength(2)
     name: string;
     @IsNotEmpty()
     @MinLength(2)
@@ -19,7 +19,7 @@ export class CreateBoulderDto {
 
 export class BoulderUpdateDto {
     @IsOptional()
-    @MinLength(3)
+    @MinLength(2)
     name?: string;
     @IsOptional()
     @MinLength(2)

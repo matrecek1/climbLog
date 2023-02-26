@@ -15,6 +15,8 @@ export class Boulder {
     @Column()
     description: string;
 
-    @OneToMany(() => Climb_log, (climbLog) => climbLog.boulder)
+    @OneToMany(() => Climb_log, (climbLog) => climbLog.boulder, {
+        cascade:true
+    })
     climbLogs: Climb_log[]
 }
