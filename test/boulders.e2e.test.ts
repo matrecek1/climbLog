@@ -6,6 +6,8 @@ import { AppModule } from '../src/app.module';
 import { DataSource, Repository } from 'typeorm';
 import { Boulder } from '../src/boulders/boulders.entity';
 import { Climb_log } from '../src/climb-logs/climb-logs.entity';
+import { BouldersController } from '../src/boulders/boulders.controller';
+
 
 
 describe('BouldersController (e2e)', () => {
@@ -23,7 +25,7 @@ describe('BouldersController (e2e)', () => {
           autoLoadEntities: true,
           dropSchema: true,
           synchronize: true
-        })]
+        })],
     }).compile();
     app = moduleFixture.createNestApplication();
     app.useGlobalPipes(new ValidationPipe());
