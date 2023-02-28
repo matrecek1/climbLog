@@ -6,6 +6,9 @@ import { BouldersModule } from './boulders/boulders.module';
 import { ClimbersModule } from './climbers/climbers.module';
 import { ClimbLogsModule } from './climb-logs/climb-logs.module';
 import * as dotenv from 'dotenv' 
+import { Climber } from './climbers/climbers.entity';
+import { Boulder } from './boulders/boulders.entity';
+import { Climb_log } from './climb-logs/climb-logs.entity';
 dotenv.config({ path:'/Users/matejcizek/Desktop/Projects/my-sql-database/boulder-log/.env'})
 
 
@@ -20,7 +23,8 @@ dotenv.config({ path:'/Users/matejcizek/Desktop/Projects/my-sql-database/boulder
           username: process.env.DB_USERNAME,
           password: process.env.DB_PASSWORD,
           database: process.env.DB_TESTNAME,
-          autoLoadEntities: true,
+          entities:[Climber, Boulder, Climb_log],
+          dropSchema:true,
           synchronize: true
         }
       }

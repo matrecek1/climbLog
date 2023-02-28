@@ -13,9 +13,12 @@ export class CreateClimberDto {
 
 export class ClimberUpdateDto {
     @IsOptional()
+    @IsNotEmpty()
     firstName?: string;
     @IsOptional()
+    @IsNotEmpty()
     lastName?: string;
     @IsOptional()
+    @IsNotEmpty()
     surname?: string;
 }
